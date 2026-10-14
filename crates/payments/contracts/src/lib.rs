@@ -276,8 +276,10 @@ pub struct SubmitEvidenceRequest {
 #[derive(Debug, Clone, Serialize, Deserialize, utoipa::ToSchema)]
 pub struct Channel {
     /// Channel id.
-    pub id: Uuid,    /// Owning tenant environment.
-    pub env_id: Uuid,    /// Machine name (`finance8` / `simulation` / external adapters).
+    pub id: Uuid,
+    /// Owning tenant environment.
+    pub env_id: Uuid,
+    /// Machine name (`finance8` / `simulation` / external adapters).
     pub name: String,
     /// Display label.
     pub label: String,

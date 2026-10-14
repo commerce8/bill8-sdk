@@ -41,7 +41,12 @@ impl WebhooksClient {
         path: &str,
         body: Option<impl serde::Serialize>,
     ) -> Result<T, SdkError> {
-        let mut req = prepare_request(&self.http, method, &format!("{}{}", self.base_url, path), self.token.as_deref());
+        let mut req = prepare_request(
+            &self.http,
+            method,
+            &format!("{}{}", self.base_url, path),
+            self.token.as_deref(),
+        );
         if let Some(b) = body {
             req = req.json(&b);
         }
@@ -59,12 +64,16 @@ impl WebhooksClient {
         &self,
         req: contracts::CreateWebhookEndpointRequest,
     ) -> Result<contracts::WebhookEndpoint, WebhooksError> {
-        Ok(self.send_json(reqwest::Method::POST, "/v1/webhook-endpoints", Some(req)).await?)
+        Ok(self
+            .send_json(reqwest::Method::POST, "/v1/webhook-endpoints", Some(req))
+            .await?)
     }
 
     /// `GET /v1/events` — list materialized events.
     pub async fn list_events(&self) -> Result<Vec<contracts::Event>, WebhooksError> {
-        Ok(self.send_json::<Vec<contracts::Event>>(reqwest::Method::GET, "/v1/events", None::<()>).await?)
+        Ok(self
+            .send_json::<Vec<contracts::Event>>(reqwest::Method::GET, "/v1/events", None::<()>)
+            .await?)
     }
 }
 

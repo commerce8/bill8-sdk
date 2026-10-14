@@ -41,7 +41,12 @@ impl ReportingClient {
         path: &str,
         body: Option<impl serde::Serialize>,
     ) -> Result<T, SdkError> {
-        let mut req = prepare_request(&self.http, method, &format!("{}{}", self.base_url, path), self.token.as_deref());
+        let mut req = prepare_request(
+            &self.http,
+            method,
+            &format!("{}{}", self.base_url, path),
+            self.token.as_deref(),
+        );
         if let Some(b) = body {
             req = req.json(&b);
         }
@@ -59,12 +64,20 @@ impl ReportingClient {
         &self,
         req: contracts::CreateReportRunRequest,
     ) -> Result<contracts::ReportRun, ReportingError> {
-        Ok(self.send_json(reqwest::Method::POST, "/v1/report-runs", Some(req)).await?)
+        Ok(self
+            .send_json(reqwest::Method::POST, "/v1/report-runs", Some(req))
+            .await?)
     }
 
     /// `GET /v1/report-types` — list report types.
     pub async fn list_report_types(&self) -> Result<Vec<contracts::ReportType>, ReportingError> {
-        Ok(self.send_json::<Vec<contracts::ReportType>>(reqwest::Method::GET, "/v1/report-types", None::<()>).await?)
+        Ok(self
+            .send_json::<Vec<contracts::ReportType>>(
+                reqwest::Method::GET,
+                "/v1/report-types",
+                None::<()>,
+            )
+            .await?)
     }
 }
 

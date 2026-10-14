@@ -41,7 +41,12 @@ impl BillingClient {
         path: &str,
         body: Option<impl serde::Serialize>,
     ) -> Result<T, SdkError> {
-        let mut req = prepare_request(&self.http, method, &format!("{}{}", self.base_url, path), self.token.as_deref());
+        let mut req = prepare_request(
+            &self.http,
+            method,
+            &format!("{}{}", self.base_url, path),
+            self.token.as_deref(),
+        );
         if let Some(b) = body {
             req = req.json(&b);
         }
@@ -59,7 +64,9 @@ impl BillingClient {
         &self,
         req: contracts::CreateSubscriptionRequest,
     ) -> Result<contracts::Subscription, BillingError> {
-        Ok(self.send_json(reqwest::Method::POST, "/v1/subscriptions", Some(req)).await?)
+        Ok(self
+            .send_json(reqwest::Method::POST, "/v1/subscriptions", Some(req))
+            .await?)
     }
 
     /// `POST /v1/usage-records` — meter a usage event.
@@ -67,12 +74,16 @@ impl BillingClient {
         &self,
         req: contracts::CreateUsageRecordRequest,
     ) -> Result<contracts::UsageRecord, BillingError> {
-        Ok(self.send_json(reqwest::Method::POST, "/v1/usage-records", Some(req)).await?)
+        Ok(self
+            .send_json(reqwest::Method::POST, "/v1/usage-records", Some(req))
+            .await?)
     }
 
     /// `GET /v1/invoices` — list invoices.
     pub async fn list_invoices(&self) -> Result<Vec<contracts::Invoice>, BillingError> {
-        Ok(self.send_json::<Vec<contracts::Invoice>>(reqwest::Method::GET, "/v1/invoices", None::<()>).await?)
+        Ok(self
+            .send_json::<Vec<contracts::Invoice>>(reqwest::Method::GET, "/v1/invoices", None::<()>)
+            .await?)
     }
 }
 

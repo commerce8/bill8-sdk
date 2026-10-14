@@ -41,7 +41,12 @@ impl RiskClient {
         path: &str,
         body: Option<impl serde::Serialize>,
     ) -> Result<T, SdkError> {
-        let mut req = prepare_request(&self.http, method, &format!("{}{}", self.base_url, path), self.token.as_deref());
+        let mut req = prepare_request(
+            &self.http,
+            method,
+            &format!("{}{}", self.base_url, path),
+            self.token.as_deref(),
+        );
         if let Some(b) = body {
             req = req.json(&b);
         }
@@ -59,7 +64,9 @@ impl RiskClient {
         &self,
         req: contracts::ScreenRequest,
     ) -> Result<contracts::Screening, RiskError> {
-        Ok(self.send_json(reqwest::Method::POST, "/v1/screenings", Some(req)).await?)
+        Ok(self
+            .send_json(reqwest::Method::POST, "/v1/screenings", Some(req))
+            .await?)
     }
 
     /// `POST /v1/rules` — create a rule.
@@ -67,7 +74,9 @@ impl RiskClient {
         &self,
         req: contracts::CreateRuleRequest,
     ) -> Result<contracts::Rule, RiskError> {
-        Ok(self.send_json(reqwest::Method::POST, "/v1/rules", Some(req)).await?)
+        Ok(self
+            .send_json(reqwest::Method::POST, "/v1/rules", Some(req))
+            .await?)
     }
 }
 

@@ -85,7 +85,10 @@ mod tests {
         assert_eq!(json["status"], "succeeded");
         assert!(json["output_ref"].is_string());
         let de: ReportRun = serde_json::from_value(json).unwrap();
-        assert_eq!(de.output_ref.as_deref(), Some("storage://reports/run-1.csv"));
+        assert_eq!(
+            de.output_ref.as_deref(),
+            Some("storage://reports/run-1.csv")
+        );
     }
 
     #[test]

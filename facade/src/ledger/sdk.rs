@@ -41,7 +41,12 @@ impl LedgerClient {
         path: &str,
         body: Option<impl serde::Serialize>,
     ) -> Result<T, SdkError> {
-        let mut req = prepare_request(&self.http, method, &format!("{}{}", self.base_url, path), self.token.as_deref());
+        let mut req = prepare_request(
+            &self.http,
+            method,
+            &format!("{}{}", self.base_url, path),
+            self.token.as_deref(),
+        );
         if let Some(b) = body {
             req = req.json(&b);
         }
@@ -56,7 +61,9 @@ impl LedgerClient {
 
     /// `GET /v1/balances` — list balances.
     pub async fn list_balances(&self) -> Result<Vec<contracts::Balance>, LedgerError> {
-        Ok(self.send_json::<Vec<contracts::Balance>>(reqwest::Method::GET, "/v1/balances", None::<()>).await?)
+        Ok(self
+            .send_json::<Vec<contracts::Balance>>(reqwest::Method::GET, "/v1/balances", None::<()>)
+            .await?)
     }
 
     /// `POST /v1/balance-transactions` — post a double-entry movement.
@@ -64,7 +71,9 @@ impl LedgerClient {
         &self,
         req: contracts::PostTransactionRequest,
     ) -> Result<contracts::BalanceTransaction, LedgerError> {
-        Ok(self.send_json(reqwest::Method::POST, "/v1/balance-transactions", Some(req)).await?)
+        Ok(self
+            .send_json(reqwest::Method::POST, "/v1/balance-transactions", Some(req))
+            .await?)
     }
 }
 

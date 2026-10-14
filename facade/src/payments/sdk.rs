@@ -41,7 +41,12 @@ impl PaymentsClient {
         path: &str,
         body: Option<impl serde::Serialize>,
     ) -> Result<T, SdkError> {
-        let mut req = prepare_request(&self.http, method, &format!("{}{}", self.base_url, path), self.token.as_deref());
+        let mut req = prepare_request(
+            &self.http,
+            method,
+            &format!("{}{}", self.base_url, path),
+            self.token.as_deref(),
+        );
         if let Some(b) = body {
             req = req.json(&b);
         }
@@ -59,7 +64,9 @@ impl PaymentsClient {
         &self,
         req: contracts::CreateCustomerRequest,
     ) -> Result<contracts::Customer, PaymentsError> {
-        Ok(self.send_json(reqwest::Method::POST, "/v1/customers", Some(req)).await?)
+        Ok(self
+            .send_json(reqwest::Method::POST, "/v1/customers", Some(req))
+            .await?)
     }
 
     /// `POST /v1/payment-intents` — create a payment intent.
@@ -67,7 +74,9 @@ impl PaymentsClient {
         &self,
         req: contracts::CreatePaymentIntentRequest,
     ) -> Result<contracts::PaymentIntent, PaymentsError> {
-        Ok(self.send_json(reqwest::Method::POST, "/v1/payment-intents", Some(req)).await?)
+        Ok(self
+            .send_json(reqwest::Method::POST, "/v1/payment-intents", Some(req))
+            .await?)
     }
 
     /// `POST /v1/charges` — create a charge.
@@ -75,12 +84,16 @@ impl PaymentsClient {
         &self,
         req: contracts::CreateChargeRequest,
     ) -> Result<contracts::Charge, PaymentsError> {
-        Ok(self.send_json(reqwest::Method::POST, "/v1/charges", Some(req)).await?)
+        Ok(self
+            .send_json(reqwest::Method::POST, "/v1/charges", Some(req))
+            .await?)
     }
 
     /// `GET /v1/charges` — list charges.
     pub async fn list_charges(&self) -> Result<Vec<contracts::Charge>, PaymentsError> {
-        Ok(self.send_json::<Vec<contracts::Charge>>(reqwest::Method::GET, "/v1/charges", None::<()>).await?)
+        Ok(self
+            .send_json::<Vec<contracts::Charge>>(reqwest::Method::GET, "/v1/charges", None::<()>)
+            .await?)
     }
 
     /// `POST /v1/refunds` — refund a charge.
@@ -88,7 +101,9 @@ impl PaymentsClient {
         &self,
         req: contracts::CreateRefundRequest,
     ) -> Result<contracts::Refund, PaymentsError> {
-        Ok(self.send_json(reqwest::Method::POST, "/v1/refunds", Some(req)).await?)
+        Ok(self
+            .send_json(reqwest::Method::POST, "/v1/refunds", Some(req))
+            .await?)
     }
 }
 

@@ -41,7 +41,12 @@ impl MerchantsClient {
         path: &str,
         body: Option<impl serde::Serialize>,
     ) -> Result<T, SdkError> {
-        let mut req = prepare_request(&self.http, method, &format!("{}{}", self.base_url, path), self.token.as_deref());
+        let mut req = prepare_request(
+            &self.http,
+            method,
+            &format!("{}{}", self.base_url, path),
+            self.token.as_deref(),
+        );
         if let Some(b) = body {
             req = req.json(&b);
         }
@@ -59,12 +64,16 @@ impl MerchantsClient {
         &self,
         req: contracts::CreateAccountRequest,
     ) -> Result<contracts::Account, MerchantsError> {
-        Ok(self.send_json(reqwest::Method::POST, "/v1/accounts", Some(req)).await?)
+        Ok(self
+            .send_json(reqwest::Method::POST, "/v1/accounts", Some(req))
+            .await?)
     }
 
     /// `GET /v1/accounts` — list connected accounts.
     pub async fn list_accounts(&self) -> Result<Vec<contracts::Account>, MerchantsError> {
-        Ok(self.send_json::<Vec<contracts::Account>>(reqwest::Method::GET, "/v1/accounts", None::<()>).await?)
+        Ok(self
+            .send_json::<Vec<contracts::Account>>(reqwest::Method::GET, "/v1/accounts", None::<()>)
+            .await?)
     }
 
     /// `POST /v1/api-keys` — issue an API-key record (metadata surface).
@@ -72,7 +81,9 @@ impl MerchantsClient {
         &self,
         req: contracts::CreateApiKeyRequest,
     ) -> Result<contracts::ApiKey, MerchantsError> {
-        Ok(self.send_json(reqwest::Method::POST, "/v1/api-keys", Some(req)).await?)
+        Ok(self
+            .send_json(reqwest::Method::POST, "/v1/api-keys", Some(req))
+            .await?)
     }
 }
 

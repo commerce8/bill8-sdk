@@ -219,7 +219,13 @@ mod tests {
         assert_eq!(ErrorCode::NotFound.as_str(), "not_found");
         assert_eq!(ErrorCode::InvalidRequest.as_str(), "invalid_request");
         assert_eq!(ErrorCode::AlreadyExists.as_str(), "already_exists");
-        assert_eq!(ErrorCode::IdempotencyConflict.as_str(), "idempotency_conflict");
-        assert_eq!(ErrorCode::DownstreamUnavailable.as_str(), "downstream_unavailable");
+        assert_eq!(
+            ErrorCode::IdempotencyConflict.as_str(),
+            "idempotency_conflict"
+        );
+        assert_eq!(
+            ErrorCode::DownstreamUnavailable.as_str(),
+            "downstream_unavailable"
+        );
     }
 }

@@ -41,7 +41,12 @@ impl CheckoutClient {
         path: &str,
         body: Option<impl serde::Serialize>,
     ) -> Result<T, SdkError> {
-        let mut req = prepare_request(&self.http, method, &format!("{}{}", self.base_url, path), self.token.as_deref());
+        let mut req = prepare_request(
+            &self.http,
+            method,
+            &format!("{}{}", self.base_url, path),
+            self.token.as_deref(),
+        );
         if let Some(b) = body {
             req = req.json(&b);
         }
@@ -59,7 +64,9 @@ impl CheckoutClient {
         &self,
         req: contracts::CreateSessionRequest,
     ) -> Result<contracts::Session, CheckoutError> {
-        Ok(self.send_json(reqwest::Method::POST, "/v1/sessions", Some(req)).await?)
+        Ok(self
+            .send_json(reqwest::Method::POST, "/v1/sessions", Some(req))
+            .await?)
     }
 
     /// `POST /v1/payment-links` — create a payment link.
@@ -67,7 +74,13 @@ impl CheckoutClient {
         &self,
         session_template: contracts::CreateSessionRequest,
     ) -> Result<contracts::PaymentLink, CheckoutError> {
-        Ok(self.send_json(reqwest::Method::POST, "/v1/payment-links", Some(session_template)).await?)
+        Ok(self
+            .send_json(
+                reqwest::Method::POST,
+                "/v1/payment-links",
+                Some(session_template),
+            )
+            .await?)
     }
 }
 
