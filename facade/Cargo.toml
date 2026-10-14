@@ -1,0 +1,37 @@
+# SPDX-FileCopyrightText: Copyright Logically Magic Inc. <hello@logicallymagic.com>
+# SPDX-FileCopyrightText: Copyright Hamid Jahanzad <Hamid@Jahanzad.com>
+# SPDX-FileCopyrightText: Copyright Contributors to the Bill8:SDK
+# SPDX-License-Identifier: Apache-2.0
+
+[package]
+name = "bill8"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+description = "Sentin8 Bill8 namespace facade — SDK clients + contracts for all bill8 services."
+
+[lib]
+name = "bill8"
+path = "src/lib.rs"
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+uuid.workspace = true
+chrono.workspace = true
+reqwest.workspace = true
+thiserror.workspace = true
+tokio = { workspace = true, features = ["macros", "rt-multi-thread"] }
+async-trait = "0.1"
+
+bill8-merchants-contracts.workspace = true
+bill8-payments-contracts.workspace = true
+bill8-checkout-contracts.workspace = true
+bill8-billing-contracts.workspace = true
+bill8-ledger-contracts.workspace = true
+bill8-webhooks-contracts.workspace = true
+bill8-risk-contracts.workspace = true
+bill8-reporting-contracts.workspace = true
+bill8-wire-contracts.workspace = true

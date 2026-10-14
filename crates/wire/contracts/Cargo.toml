@@ -1,0 +1,26 @@
+# SPDX-FileCopyrightText: Copyright Logically Magic Inc. <hello@logicallymagic.com>
+# SPDX-FileCopyrightText: Copyright Hamid Jahanzad <Hamid@Jahanzad.com>
+# SPDX-FileCopyrightText: Copyright Contributors to the Bill8:SDK
+# SPDX-License-Identifier: Apache-2.0
+
+[package]
+name = "bill8-wire-contracts"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+description = "Cross-service wire conventions for Bill8: the uniform error envelope, cursor pagination shape, and shared header conventions."
+
+[lib]
+name = "bill8_wire_contracts"
+path = "src/lib.rs"
+
+[dependencies]
+serde.workspace = true
+serde_json.workspace = true
+uuid.workspace = true
+chrono.workspace = true
+utoipa.workspace = true
+
+[dev-dependencies]
