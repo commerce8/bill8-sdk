@@ -1,4 +1,4 @@
-# BUSINESS.md: bill8-wire-contracts — Business Requirements & Functionality
+# bill8-wire-contracts — Business Requirements & Functionality
 
 > Audience: product owners, business analysts, and anyone evaluating what
 > the wire conventions **do for the business**. For architecture read

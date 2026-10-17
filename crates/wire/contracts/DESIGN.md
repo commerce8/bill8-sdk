@@ -1,4 +1,4 @@
-# DESIGN.md: bill8-wire-contracts — Detailed Design Document
+# bill8-wire-contracts — Detailed Design Document
 
 ## 1. Scope & Context
 
