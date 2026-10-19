@@ -23,8 +23,8 @@ graph TD
 
 ## 4. Key Traits and Data Structures
 
-- `ReportType` — a versioned report definition.
-- `ReportRun` — an execution with `status`
+- `ReportType` - a versioned report definition.
+- `ReportRun` - an execution with `status`
   (`pending/succeeded/failed`) and an output reference.
 
 ## 5. Rationale, Trade-offs, and Alternatives

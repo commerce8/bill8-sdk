@@ -1,6 +1,6 @@
 # bill8-payments-contracts
 
-Wire types for the Bill8:Payments HTTP API — the shared vocabulary
+Wire types for the Bill8:Payments HTTP API - the shared vocabulary
 between the payments service, the `bill8` SDK client, and any Rust
 consumer of the payments REST surface.
 
@@ -34,15 +34,15 @@ graph TD
 
 ## 4. Key Traits and Data Structures
 
-- `Charge` — an immutable money capture with `status` in
+- `Charge` - an immutable money capture with `status` in
   `pending/succeeded/failed/refunded/partially_refunded`; `amount` is a
   JSON string (money is never a float).
-- `Refund` — a compensating record bounded by the charge's refundable
+- `Refund` - a compensating record bounded by the charge's refundable
   amount.
-- `Dispute` — a challenge with `status` and `evidence`.
+- `Dispute` - a challenge with `status` and `evidence`.
 
 All types derive `Serialize`/`Deserialize`/`Clone`/`Debug` and nothing
-else — no behavior lives here.
+else - no behavior lives here.
 
 ## 5. Rationale, Trade-offs, and Alternatives
 
@@ -59,7 +59,7 @@ else — no behavior lives here.
 
 ## 7. Unresolved Questions / Future Designs
 
-- None — the wire format is fixed at design time.
+- None - the wire format is fixed at design time.
 
 ---
 

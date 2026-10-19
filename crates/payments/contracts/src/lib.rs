@@ -58,7 +58,7 @@ pub struct PaymentMethod {
     pub customer_id: Uuid,
     /// Instrument family (`card` / `bank_debit` / `wallet`).
     pub method_type: String,
-    /// Opaque display descriptor (e.g. masked last digits) — no secrets.
+    /// Opaque display descriptor (e.g. masked last digits) - no secrets.
     pub display: String,
     /// Secret reference holding the instrument data (Sentin8:Secrets).
     pub secret_ref: String,
@@ -119,7 +119,7 @@ pub struct CreatePaymentIntentRequest {
     pub idempotency_key: Option<String>,
 }
 
-/// A setup intent — saving a payment method for later use without a
+/// A setup intent - saving a payment method for later use without a
 /// charge (PAY-5). The lifecycle mirrors the payment intent's
 /// confirmation phase minus the money movement.
 #[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
@@ -196,7 +196,7 @@ pub struct CreateChargeRequest {
     pub customer_id: Option<Uuid>,
     /// Payment method to charge.
     pub payment_method_id: Option<Uuid>,
-    /// Originating intent (optional — direct charges carry none).
+    /// Originating intent (optional - direct charges carry none).
     pub payment_intent_id: Option<Uuid>,
     /// Amount as a decimal string.
     pub amount: String,

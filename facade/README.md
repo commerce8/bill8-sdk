@@ -1,4 +1,4 @@
-# bill8 — Rust namespace facade
+# bill8 - Rust namespace facade
 
 The unified Rust entry point for the bill8 vertical: SDK clients and
 contracts for all eight services, imported as
@@ -52,13 +52,13 @@ attached.
 
 ## 4. Key Traits and Data Structures
 
-- `trait ClientBuilder` — the uniform builder contract every service
+- `trait ClientBuilder` - the uniform builder contract every service
   client implements (`with_base_url`, `with_token`, `with_http_client`).
 - One typed client per service (`MerchantsClient`, `PaymentsClient`,
   `CheckoutClient`, `BillingClient`, `LedgerClient`, `WebhooksClient`,
   `RiskClient`, `ReportingClient`), each mapping 1:1 to its service's
   endpoints and decoding into contracts types.
-- `CORRELATION_ID_HEADER` / `generate_correlation_id()` — the
+- `CORRELATION_ID_HEADER` / `generate_correlation_id()` - the
   cross-service tracing convention.
 
 ## 5. Rationale, Trade-offs, and Alternatives
@@ -77,7 +77,7 @@ attached.
 
 ## 7. Unresolved Questions / Future Designs
 
-- None — the facade shape mirrors the service set at design time.
+- None - the facade shape mirrors the service set at design time.
 
 ---
 

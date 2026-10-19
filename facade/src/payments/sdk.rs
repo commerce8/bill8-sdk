@@ -3,7 +3,7 @@
 // SPDX-FileCopyrightText: Copyright Contributors to the Bill8:SDK
 // SPDX-License-Identifier: Apache-2.0
 
-//! Payments SDK client — typed methods over the Bill8:Payments REST API.
+//! Payments SDK client - typed methods over the Bill8:Payments REST API.
 
 use bill8_payments_contracts as contracts;
 
@@ -59,7 +59,7 @@ impl PaymentsClient {
         serde_json::from_str(&text).map_err(|e| SdkError::Decode(format!("{e}: {text}")))
     }
 
-    /// `POST /v1/customers` — create a customer.
+    /// `POST /v1/customers` - create a customer.
     pub async fn create_customer(
         &self,
         req: contracts::CreateCustomerRequest,
@@ -69,7 +69,7 @@ impl PaymentsClient {
             .await?)
     }
 
-    /// `POST /v1/payment-intents` — create a payment intent.
+    /// `POST /v1/payment-intents` - create a payment intent.
     pub async fn create_intent(
         &self,
         req: contracts::CreatePaymentIntentRequest,
@@ -79,7 +79,7 @@ impl PaymentsClient {
             .await?)
     }
 
-    /// `POST /v1/charges` — create a charge.
+    /// `POST /v1/charges` - create a charge.
     pub async fn create_charge(
         &self,
         req: contracts::CreateChargeRequest,
@@ -89,14 +89,14 @@ impl PaymentsClient {
             .await?)
     }
 
-    /// `GET /v1/charges` — list charges.
+    /// `GET /v1/charges` - list charges.
     pub async fn list_charges(&self) -> Result<Vec<contracts::Charge>, PaymentsError> {
         Ok(self
             .send_json::<Vec<contracts::Charge>>(reqwest::Method::GET, "/v1/charges", None::<()>)
             .await?)
     }
 
-    /// `POST /v1/refunds` — refund a charge.
+    /// `POST /v1/refunds` - refund a charge.
     pub async fn create_refund(
         &self,
         req: contracts::CreateRefundRequest,

@@ -3,7 +3,7 @@
 // SPDX-FileCopyrightText: Copyright Contributors to the Bill8:SDK
 // SPDX-License-Identifier: Apache-2.0
 
-//! # bill8-wire-contracts — the Bill8 wire conventions
+//! # bill8-wire-contracts - the Bill8 wire conventions
 //!
 //! The cross-service wire contract every Bill8 API publishes and
 //! every external integrator programs against (WS-4). One crate so the
@@ -12,14 +12,14 @@
 //!
 //! # Conventions (asserted by the tests below)
 //!
-//! - **Money is a string** everywhere — a decimal string in the
+//! - **Money is a string** everywhere - a decimal string in the
 //!   currency's smallest unit context (`"12.34"`); never a float.
 //! - **`Idempotency-Key` header** ≡ the body's `idempotency_key` field
 //!   (header wins only when both are present and differ is a `400`).
-//! - **Cursor pagination** — `limit` + `starting_after` /
+//! - **Cursor pagination** - `limit` + `starting_after` /
 //!   `ending_before`; list responses carry `data` + `next_cursor` and
 //!   `has_more`.
-//! - **Uniform error envelope** — every non-2xx carries
+//! - **Uniform error envelope** - every non-2xx carries
 //!   `{ "error": { "code", "message", "doc_ref" } }`; `code` is
 //!   stable and machine-readable, `message` human.
 //!
@@ -50,11 +50,11 @@ pub enum ErrorCode {
     Forbidden,
     /// The resource does not exist in this env (404).
     NotFound,
-    /// A domain rule rejected the request — nothing written (422).
+    /// A domain rule rejected the request - nothing written (422).
     InvalidRequest,
     /// The guarded transition guard fired (409).
     AlreadyExists,
-    /// Idempotency conflict — same key, different payload (400).
+    /// Idempotency conflict - same key, different payload (400).
     IdempotencyConflict,
     /// A downstream dependency failed (502/503).
     DownstreamUnavailable,
@@ -74,7 +74,7 @@ impl ErrorCode {
     }
 }
 
-/// One element of the uniform error envelope — `error.code` (stable,
+/// One element of the uniform error envelope - `error.code` (stable,
 /// machine-readable) + `error.message` (human) + `error.doc_ref`
 /// (spec anchor).
 #[derive(Debug, Clone, Serialize, Deserialize, utoipa::ToSchema)]
@@ -88,7 +88,7 @@ pub struct ApiError {
     pub doc_ref: Option<String>,
 }
 
-/// The uniform error envelope — the exact body shape of every non-2xx
+/// The uniform error envelope - the exact body shape of every non-2xx
 /// response (WS-4 wire convention).
 #[derive(Debug, Clone, Serialize, Deserialize, utoipa::ToSchema)]
 pub struct ErrorEnvelope {
@@ -114,24 +114,24 @@ impl ErrorEnvelope {
             error: ApiError {
                 code: ErrorCode::NotFound.as_str().to_string(),
                 message: message.to_string(),
-                doc_ref: Some("documents.md §2 — wire conventions".into()),
+                doc_ref: Some("documents.md §2 - wire conventions".into()),
             },
         }
     }
 
-    /// Build an `invalid_request` envelope (422 — nothing written).
+    /// Build an `invalid_request` envelope (422 - nothing written).
     pub fn invalid_request(message: &str) -> Self {
         Self {
             error: ApiError {
                 code: ErrorCode::InvalidRequest.as_str().to_string(),
                 message: message.to_string(),
-                doc_ref: Some("documents.md §2 — wire conventions".into()),
+                doc_ref: Some("documents.md §2 - wire conventions".into()),
             },
         }
     }
 }
 
-/// Cursor-pagination query parameters — the shared list convention.
+/// Cursor-pagination query parameters - the shared list convention.
 #[derive(Debug, Clone, Serialize, Deserialize, utoipa::IntoParams)]
 pub struct CursorParams {
     /// Page size (1..=200, default 20).
@@ -145,7 +145,7 @@ pub struct CursorParams {
     pub ending_before: Option<String>,
 }
 
-/// The uniform list response shape — `data` + cursors + `has_more`.
+/// The uniform list response shape - `data` + cursors + `has_more`.
 #[derive(Debug, Clone, Serialize, Deserialize, utoipa::ToSchema)]
 pub struct ListPage<T> {
     /// The page's items (oldest → newest unless stated per endpoint).
@@ -157,7 +157,7 @@ pub struct ListPage<T> {
     pub has_more: bool,
 }
 
-/// The shared header conventions (names + semantics only — services
+/// The shared header conventions (names + semantics only - services
 /// publish their own utoipa `SecurityScheme` for the token).
 #[derive(Debug, Clone, Serialize, Deserialize, utoipa::ToSchema)]
 pub struct HeaderConventions {
@@ -198,7 +198,7 @@ mod tests {
         assert_eq!(e.error.code, "forbidden");
     }
 
-    /// WS-4: cursor pagination — data + next_cursor + has_more.
+    /// WS-4: cursor pagination - data + next_cursor + has_more.
     #[test]
     fn cursor_page_shape() {
         let page: ListPage<u32> = ListPage {

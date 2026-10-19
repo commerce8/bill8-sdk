@@ -1,10 +1,10 @@
-# bill8-sdk — Bill8 Namespace Facade
+# bill8-sdk - Bill8 Namespace Facade
 
 ## 1. Summary
 
 The Bill8 vertical's SDK workspace: one cargo workspace holding the
 vertical's nine contracts crates and the `bill8` facade crate.
-Imports go through the facade — `use bill8::ledger::contracts::…`
+Imports go through the facade - `use bill8::ledger::contracts::…`
 (namespace rule, architecture-principles §2.1).
 
 ## 2. Crates
@@ -28,7 +28,7 @@ Imports go through the facade — `use bill8::ledger::contracts::…`
 bill8 = { git = "https://github.com/commerce8/bill8-sdk", tag = "bill8-v0.1.0" }
 ```
 
-The facade pins the platform SDK (`sentin8` — shared plane only,
+The facade pins the platform SDK (`sentin8` - shared plane only,
 SDD §2.2); consumers inherit it transitively.
 
 ---

@@ -5,7 +5,7 @@
 
 //! # bill8-billing-contracts
 //!
-//! Wire types for the Bill8:Billing HTTP API — products, prices,
+//! Wire types for the Bill8:Billing HTTP API - products, prices,
 //! subscriptions, invoices, usage, coupons, credits, and credit notes.
 //! Money is a JSON string on the wire (never a float).
 
@@ -285,7 +285,7 @@ mod tests {
         let p: Price = serde_json::from_value(json).unwrap();
         assert_eq!(p.pricing_model, "tiered");
         // Money stays a string on the wire (invariant holds on the
-        // deserialized form — the raw JSON assertion lives in the
+        // deserialized form - the raw JSON assertion lives in the
         // round-trip tests).
         assert!(p.unit_amount.contains('.'));
     }

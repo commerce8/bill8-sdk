@@ -24,10 +24,10 @@ graph TD
 
 ## 4. Key Traits and Data Structures
 
-- `Rule` — a declarative predicate with an `action`
+- `Rule` - a declarative predicate with an `action`
   (`allow/review/block`).
-- `Screening` — an evaluation result.
-- `Review` — a manual adjudication case with `status`
+- `Screening` - an evaluation result.
+- `Review` - a manual adjudication case with `status`
   (`open/approved/declined`).
 
 ## 5. Rationale, Trade-offs, and Alternatives

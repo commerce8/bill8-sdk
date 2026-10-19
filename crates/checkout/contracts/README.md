@@ -24,11 +24,11 @@ graph TD
 
 ## 4. Key Traits and Data Structures
 
-- `Session` — a checkout session with `mode`
+- `Session` - a checkout session with `mode`
   (`payment/subscription/setup`), success/cancel URLs, and `status`
   (`open/complete/expired`).
-- `LineItem` — an item referencing a price or inline price data.
-- `PaymentLink` — a reusable link to a session.
+- `LineItem` - an item referencing a price or inline price data.
+- `PaymentLink` - a reusable link to a session.
 
 ## 5. Rationale, Trade-offs, and Alternatives
 

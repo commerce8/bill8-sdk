@@ -5,7 +5,7 @@
 
 //! # bill8-merchants-contracts
 //!
-//! Wire types for the Bill8:Merchants HTTP API — connected accounts,
+//! Wire types for the Bill8:Merchants HTTP API - connected accounts,
 //! persons, external accounts, and links. Key material never appears in
 //! these DTOs (the platform issuer is its only holder); bank details are
 //! secret-by-reference.
@@ -57,7 +57,7 @@ pub struct ExternalAccount {
     pub account_id: Uuid,
     /// Instrument family (`bank`).
     pub bank_type: String,
-    /// Opaque display descriptor (masked) — no secrets.
+    /// Opaque display descriptor (masked) - no secrets.
     pub display: String,
     /// Secret reference holding the bank details (Sentin8:Secrets).
     pub secret_ref: String,
@@ -97,7 +97,7 @@ pub struct LoginLink {
     pub created_at: DateTime<Utc>,
 }
 
-/// Merchant API-key metadata. Key material is never persisted here —
+/// Merchant API-key metadata. Key material is never persisted here -
 /// the platform issuer is its only holder; this DTO is metadata + masked
 /// display only.
 #[derive(Debug, Clone, Serialize, Deserialize, utoipa::ToSchema)]
@@ -149,7 +149,7 @@ pub struct CreateExternalAccountRequest {
     pub account_id: Uuid,
     /// Instrument family (`bank`; defaults when absent).
     pub bank_type: Option<String>,
-    /// Masked display descriptor (last-4 style) — never the number.
+    /// Masked display descriptor (last-4 style) - never the number.
     pub display: String,
 }
 

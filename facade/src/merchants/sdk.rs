@@ -3,7 +3,7 @@
 // SPDX-FileCopyrightText: Copyright Contributors to the Bill8:SDK
 // SPDX-License-Identifier: Apache-2.0
 
-//! Merchants SDK client — typed methods over the Bill8:Merchants REST API.
+//! Merchants SDK client - typed methods over the Bill8:Merchants REST API.
 
 use bill8_merchants_contracts as contracts;
 
@@ -59,7 +59,7 @@ impl MerchantsClient {
         serde_json::from_str(&text).map_err(|e| SdkError::Decode(format!("{e}: {text}")))
     }
 
-    /// `POST /v1/accounts` — create a connected account.
+    /// `POST /v1/accounts` - create a connected account.
     pub async fn create_account(
         &self,
         req: contracts::CreateAccountRequest,
@@ -69,14 +69,14 @@ impl MerchantsClient {
             .await?)
     }
 
-    /// `GET /v1/accounts` — list connected accounts.
+    /// `GET /v1/accounts` - list connected accounts.
     pub async fn list_accounts(&self) -> Result<Vec<contracts::Account>, MerchantsError> {
         Ok(self
             .send_json::<Vec<contracts::Account>>(reqwest::Method::GET, "/v1/accounts", None::<()>)
             .await?)
     }
 
-    /// `POST /v1/api-keys` — issue an API-key record (metadata surface).
+    /// `POST /v1/api-keys` - issue an API-key record (metadata surface).
     pub async fn create_api_key(
         &self,
         req: contracts::CreateApiKeyRequest,

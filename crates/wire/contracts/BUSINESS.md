@@ -1,4 +1,4 @@
-# bill8-wire-contracts — Business Requirements & Functionality
+# bill8-wire-contracts - Business Requirements & Functionality
 
 > Audience: product owners, business analysts, and anyone evaluating what
 > the wire conventions **do for the business**. For architecture read
@@ -6,7 +6,7 @@
 
 ## 1. Business Purpose
 
-- External integrators learn **one** API contract, then use every Bill8 surface — payments, billing, webhooks, reporting, and the rest — without re-learning error formats or pagination.
+- External integrators learn **one** API contract, then use every Bill8 surface - payments, billing, webhooks, reporting, and the rest - without re-learning error formats or pagination.
 - Support and integration teams triage by **stable error codes**, not by parsing prose.
 - Integrations survive platform evolution: the conventions are pinned, tested, and never silently changed.
 
@@ -14,11 +14,11 @@
 
 | Capability | Business rule |
 |---|---|
-| Uniform error envelope | Every failed request answers with a predictable `{ error: { code, message } }` body — no surprises per endpoint |
+| Uniform error envelope | Every failed request answers with a predictable `{ error: { code, message } }` body - no surprises per endpoint |
 | Stable error-code set | Six machine-readable codes cover every failure class; they never change names |
-| Cursor pagination | Every list answers "what's next" with `next_cursor`/`has_more` — no page drift |
+| Cursor pagination | Every list answers "what's next" with `next_cursor`/`has_more` - no page drift |
 | Header conventions | `Idempotency-Key`, version pinning, and correlation echo behave identically everywhere |
-| Money-as-string | Amounts are always decimal strings — no floating-point rounding surprises in integrator ledgers |
+| Money-as-string | Amounts are always decimal strings - no floating-point rounding surprises in integrator ledgers |
 
 **What the service does NOT own (business boundary):**
 
@@ -35,11 +35,11 @@
 | Errors | Predictable failure contract | A failed integration call is diagnosable from the response alone |
 | Lists | Complete, stable enumeration | Paginating a list under load never skips or duplicates rows |
 | Idempotency | Safe retries | The same `Idempotency-Key` never double-charges; a differing key on a retried payload is rejected loudly |
-| Compatibility | Version pinning | Breaking changes ship under a new version header value — never in place |
+| Compatibility | Version pinning | Breaking changes ship under a new version header value - never in place |
 
 ## 4. Business Events (Outbound)
 
-None — the crate is a shared contract library, not a running service. It emits no events and consumes none.
+None - the crate is a shared contract library, not a running service. It emits no events and consumes none.
 
 ## 5. Business Rules & Invariants
 
@@ -65,7 +65,7 @@ None — the crate is a shared contract library, not a running service. It emits
 
 ## 8. Dependencies & Reliance on Other Services
 
-None — the crate is a leaf library with no runtime dependencies beyond serialization.
+None - the crate is a leaf library with no runtime dependencies beyond serialization.
 
 ## 9. Acceptance Criteria
 
@@ -75,7 +75,7 @@ None — the crate is a leaf library with no runtime dependencies beyond seriali
 
 ## 10. Open Business Questions
 
-- Per-locale error `message` values — deferred until non-English locales are on the roadmap.
+- Per-locale error `message` values - deferred until non-English locales are on the roadmap.
 
 ---
 

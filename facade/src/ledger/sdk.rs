@@ -3,7 +3,7 @@
 // SPDX-FileCopyrightText: Copyright Contributors to the Bill8:SDK
 // SPDX-License-Identifier: Apache-2.0
 
-//! Ledger SDK client — typed methods over the Bill8:Ledger REST API.
+//! Ledger SDK client - typed methods over the Bill8:Ledger REST API.
 
 use bill8_ledger_contracts as contracts;
 
@@ -59,14 +59,14 @@ impl LedgerClient {
         serde_json::from_str(&text).map_err(|e| SdkError::Decode(format!("{e}: {text}")))
     }
 
-    /// `GET /v1/balances` — list balances.
+    /// `GET /v1/balances` - list balances.
     pub async fn list_balances(&self) -> Result<Vec<contracts::Balance>, LedgerError> {
         Ok(self
             .send_json::<Vec<contracts::Balance>>(reqwest::Method::GET, "/v1/balances", None::<()>)
             .await?)
     }
 
-    /// `POST /v1/balance-transactions` — post a double-entry movement.
+    /// `POST /v1/balance-transactions` - post a double-entry movement.
     pub async fn post_transaction(
         &self,
         req: contracts::PostTransactionRequest,

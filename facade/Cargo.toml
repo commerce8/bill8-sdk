@@ -10,7 +10,7 @@ edition.workspace = true
 license.workspace = true
 repository.workspace = true
 rust-version.workspace = true
-description = "Sentin8 Bill8 namespace facade — SDK clients + contracts for all bill8 services."
+description = "Sentin8 Bill8 namespace facade - SDK clients + contracts for all bill8 services."
 
 [lib]
 name = "bill8"

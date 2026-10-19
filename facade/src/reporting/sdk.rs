@@ -3,7 +3,7 @@
 // SPDX-FileCopyrightText: Copyright Contributors to the Bill8:SDK
 // SPDX-License-Identifier: Apache-2.0
 
-//! Reporting SDK client — typed methods over the Bill8:Reporting REST API.
+//! Reporting SDK client - typed methods over the Bill8:Reporting REST API.
 
 use bill8_reporting_contracts as contracts;
 
@@ -59,7 +59,7 @@ impl ReportingClient {
         serde_json::from_str(&text).map_err(|e| SdkError::Decode(format!("{e}: {text}")))
     }
 
-    /// `POST /v1/report-runs` — run a report.
+    /// `POST /v1/report-runs` - run a report.
     pub async fn create_report_run(
         &self,
         req: contracts::CreateReportRunRequest,
@@ -69,7 +69,7 @@ impl ReportingClient {
             .await?)
     }
 
-    /// `GET /v1/report-types` — list report types.
+    /// `GET /v1/report-types` - list report types.
     pub async fn list_report_types(&self) -> Result<Vec<contracts::ReportType>, ReportingError> {
         Ok(self
             .send_json::<Vec<contracts::ReportType>>(

@@ -3,7 +3,7 @@
 // SPDX-FileCopyrightText: Copyright Contributors to the Bill8:SDK
 // SPDX-License-Identifier: Apache-2.0
 
-//! Webhooks SDK client — typed methods over the Bill8:Webhooks REST API.
+//! Webhooks SDK client - typed methods over the Bill8:Webhooks REST API.
 
 use bill8_webhooks_contracts as contracts;
 
@@ -59,7 +59,7 @@ impl WebhooksClient {
         serde_json::from_str(&text).map_err(|e| SdkError::Decode(format!("{e}: {text}")))
     }
 
-    /// `POST /v1/webhook-endpoints` — register an endpoint.
+    /// `POST /v1/webhook-endpoints` - register an endpoint.
     pub async fn create_endpoint(
         &self,
         req: contracts::CreateWebhookEndpointRequest,
@@ -69,7 +69,7 @@ impl WebhooksClient {
             .await?)
     }
 
-    /// `GET /v1/events` — list materialized events.
+    /// `GET /v1/events` - list materialized events.
     pub async fn list_events(&self) -> Result<Vec<contracts::Event>, WebhooksError> {
         Ok(self
             .send_json::<Vec<contracts::Event>>(reqwest::Method::GET, "/v1/events", None::<()>)

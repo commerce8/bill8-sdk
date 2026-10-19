@@ -3,7 +3,7 @@
 // SPDX-FileCopyrightText: Copyright Contributors to the Bill8:SDK
 // SPDX-License-Identifier: Apache-2.0
 
-//! # bill8 — Bill8 workspace namespace facade
+//! # bill8 - Bill8 workspace namespace facade
 //!
 //! The unified Rust entry point for the bill8 vertical: SDK clients
 //! and contracts for all eight services, imported as
@@ -40,64 +40,64 @@
 
 use std::sync::atomic::{AtomicU64, Ordering};
 
-/// Bill8:Merchants — SDK client + contracts.
+/// Bill8:Merchants - SDK client + contracts.
 pub mod merchants {
     pub use bill8_merchants_contracts as contracts;
     mod sdk;
     pub use sdk::{MerchantsClient, MerchantsError};
 }
 
-/// Bill8:Payments — SDK client + contracts.
+/// Bill8:Payments - SDK client + contracts.
 pub mod payments {
     pub use bill8_payments_contracts as contracts;
     mod sdk;
     pub use sdk::{PaymentsClient, PaymentsError};
 }
 
-/// Bill8:Checkout — SDK client + contracts.
+/// Bill8:Checkout - SDK client + contracts.
 pub mod checkout {
     pub use bill8_checkout_contracts as contracts;
     mod sdk;
     pub use sdk::{CheckoutClient, CheckoutError};
 }
 
-/// Bill8:Billing — SDK client + contracts.
+/// Bill8:Billing - SDK client + contracts.
 pub mod billing {
     pub use bill8_billing_contracts as contracts;
     mod sdk;
     pub use sdk::{BillingClient, BillingError};
 }
 
-/// Bill8:Ledger — SDK client + contracts.
+/// Bill8:Ledger - SDK client + contracts.
 pub mod ledger {
     pub use bill8_ledger_contracts as contracts;
     mod sdk;
     pub use sdk::{LedgerClient, LedgerError};
 }
 
-/// Bill8:Webhooks — SDK client + contracts.
+/// Bill8:Webhooks - SDK client + contracts.
 pub mod webhooks {
     pub use bill8_webhooks_contracts as contracts;
     mod sdk;
     pub use sdk::{WebhooksClient, WebhooksError};
 }
 
-/// Bill8:Risk — SDK client + contracts.
+/// Bill8:Risk - SDK client + contracts.
 pub mod risk {
     pub use bill8_risk_contracts as contracts;
     mod sdk;
     pub use sdk::{RiskClient, RiskError};
 }
 
-/// Bill8:Reporting — SDK client + contracts.
-/// Bill8:Reporting — SDK client + contracts.
+/// Bill8:Reporting - SDK client + contracts.
+/// Bill8:Reporting - SDK client + contracts.
 pub mod reporting {
     pub use bill8_reporting_contracts as contracts;
     mod sdk;
     pub use sdk::{ReportingClient, ReportingError};
 }
 
-/// The cross-service wire conventions — the uniform error envelope,
+/// The cross-service wire conventions - the uniform error envelope,
 /// cursor pagination shape, and shared header conventions (WS-4).
 /// Import as `bill8::wire::{…}`.
 pub mod wire {

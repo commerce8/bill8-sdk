@@ -24,10 +24,10 @@ graph TD
 
 ## 4. Key Traits and Data Structures
 
-- `Balance` — a named money position; `amount` is a JSON string.
-- `BalanceTransaction` — an append-only double-entry movement with debit
+- `Balance` - a named money position; `amount` is a JSON string.
+- `BalanceTransaction` - an append-only double-entry movement with debit
   and credit legs.
-- `Payout` / `Transfer` — money movement records with status.
+- `Payout` / `Transfer` - money movement records with status.
 
 ## 5. Rationale, Trade-offs, and Alternatives
 

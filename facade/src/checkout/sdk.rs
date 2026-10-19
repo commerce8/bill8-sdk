@@ -3,7 +3,7 @@
 // SPDX-FileCopyrightText: Copyright Contributors to the Bill8:SDK
 // SPDX-License-Identifier: Apache-2.0
 
-//! Checkout SDK client — typed methods over the Bill8:Checkout REST API.
+//! Checkout SDK client - typed methods over the Bill8:Checkout REST API.
 
 use bill8_checkout_contracts as contracts;
 
@@ -59,7 +59,7 @@ impl CheckoutClient {
         serde_json::from_str(&text).map_err(|e| SdkError::Decode(format!("{e}: {text}")))
     }
 
-    /// `POST /v1/sessions` — create a checkout session.
+    /// `POST /v1/sessions` - create a checkout session.
     pub async fn create_session(
         &self,
         req: contracts::CreateSessionRequest,
@@ -69,7 +69,7 @@ impl CheckoutClient {
             .await?)
     }
 
-    /// `POST /v1/payment-links` — create a payment link.
+    /// `POST /v1/payment-links` - create a payment link.
     pub async fn create_payment_link(
         &self,
         session_template: contracts::CreateSessionRequest,

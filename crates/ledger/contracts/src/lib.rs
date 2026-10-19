@@ -5,7 +5,7 @@
 
 //! # bill8-ledger-contracts
 //!
-//! Wire types for the Bill8:Ledger HTTP API — the double-entry money
+//! Wire types for the Bill8:Ledger HTTP API - the double-entry money
 //! engine. Money is a JSON string on the wire (never a float); balance
 //! transactions are append-only double-entry movements.
 

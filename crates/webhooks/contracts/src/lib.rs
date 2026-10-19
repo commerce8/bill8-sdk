@@ -5,7 +5,7 @@
 
 //! # bill8-webhooks-contracts
 //!
-//! Wire types for the Bill8:Webhooks HTTP API — endpoints, events,
+//! Wire types for the Bill8:Webhooks HTTP API - endpoints, events,
 //! and deliveries. Signing secrets are secret-by-reference and never
 //! serialize in plaintext.
 
@@ -36,7 +36,7 @@ pub struct WebhookEndpoint {
 /// A materialized domain event with its envelope.
 #[derive(Debug, Clone, Serialize, Deserialize, utoipa::ToSchema)]
 pub struct Event {
-    /// Event id (dedupe key — duplicate delivery materializes one row).
+    /// Event id (dedupe key - duplicate delivery materializes one row).
     pub id: Uuid,
     /// Owning tenant environment.
     pub env_id: Uuid,

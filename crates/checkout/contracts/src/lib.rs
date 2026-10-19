@@ -5,7 +5,7 @@
 
 //! # bill8-checkout-contracts
 //!
-//! Wire types for the Bill8:Checkout HTTP API — sessions, line items,
+//! Wire types for the Bill8:Checkout HTTP API - sessions, line items,
 //! and payment links. Money is a JSON string on the wire (never a float).
 
 use chrono::{DateTime, Utc};
@@ -24,7 +24,7 @@ pub struct Session {
     pub mode: String,
     /// Lifecycle state (`open` / `complete` / `expired`).
     pub status: String,
-    /// Success URL (validated at creation — no open redirect).
+    /// Success URL (validated at creation - no open redirect).
     pub success_url: String,
     /// Cancel URL (validated at creation).
     pub cancel_url: String,
@@ -36,7 +36,7 @@ pub struct Session {
     pub created_at: DateTime<Utc>,
 }
 
-/// An item on a session — references a billing price or inline data.
+/// An item on a session - references a billing price or inline data.
 #[derive(Debug, Clone, Serialize, Deserialize, utoipa::ToSchema)]
 pub struct LineItem {
     /// Item id.

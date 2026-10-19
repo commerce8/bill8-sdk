@@ -5,7 +5,7 @@
 
 //! # bill8-risk-contracts
 //!
-//! Wire types for the Bill8:Risk HTTP API — rules, screenings, and
+//! Wire types for the Bill8:Risk HTTP API - rules, screenings, and
 //! reviews. Evaluation fails closed: a malformed rule blocks.
 
 use chrono::{DateTime, Utc};
@@ -44,7 +44,7 @@ pub struct Screening {
     pub env_id: Uuid,
     /// The screened charge context.
     pub charge_context: serde_json::Value,
-    /// Outcome (`allow` / `review` / `block`) — fail-closed on evaluation
+    /// Outcome (`allow` / `review` / `block`) - fail-closed on evaluation
     /// error (a `block`, never an `allow`).
     pub outcome: String,
     /// The rule that decided (first match by priority).

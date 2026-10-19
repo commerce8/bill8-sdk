@@ -5,7 +5,7 @@
 
 //! # bill8-reporting-contracts
 //!
-//! Wire types for the Bill8:Reporting HTTP API — report types and
+//! Wire types for the Bill8:Reporting HTTP API - report types and
 //! report runs. Output files are Storage references, never inline content.
 
 use chrono::{DateTime, Utc};

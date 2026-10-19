@@ -24,10 +24,10 @@ graph TD
 
 ## 4. Key Traits and Data Structures
 
-- `WebhookEndpoint` — a merchant URL with enabled event types and a
+- `WebhookEndpoint` - a merchant URL with enabled event types and a
   signing secret reference.
-- `Event` — a materialized event with `id`, `type`, `data`, `created`.
-- `Delivery` — a delivery attempt with `status` and retry count.
+- `Event` - a materialized event with `id`, `type`, `data`, `created`.
+- `Delivery` - a delivery attempt with `status` and retry count.
 
 ## 5. Rationale, Trade-offs, and Alternatives
 

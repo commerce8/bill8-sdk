@@ -25,10 +25,10 @@ graph TD
 
 ## 4. Key Traits and Data Structures
 
-- `Account` — a connected account with `verification_status`
+- `Account` - a connected account with `verification_status`
   (`unverified/pending/verified/rejected`).
-- `Person` — an individual associated with an account.
-- `ExternalAccount` — a payout destination (secret-by-reference fields).
+- `Person` - an individual associated with an account.
+- `ExternalAccount` - a payout destination (secret-by-reference fields).
 
 ## 5. Rationale, Trade-offs, and Alternatives
 

@@ -3,7 +3,7 @@
 // SPDX-FileCopyrightText: Copyright Contributors to the Bill8:SDK
 // SPDX-License-Identifier: Apache-2.0
 
-//! Risk SDK client — typed methods over the Bill8:Risk REST API.
+//! Risk SDK client - typed methods over the Bill8:Risk REST API.
 
 use bill8_risk_contracts as contracts;
 
@@ -59,7 +59,7 @@ impl RiskClient {
         serde_json::from_str(&text).map_err(|e| SdkError::Decode(format!("{e}: {text}")))
     }
 
-    /// `POST /v1/screenings` — screen a charge context (M2M path).
+    /// `POST /v1/screenings` - screen a charge context (M2M path).
     pub async fn screen(
         &self,
         req: contracts::ScreenRequest,
@@ -69,7 +69,7 @@ impl RiskClient {
             .await?)
     }
 
-    /// `POST /v1/rules` — create a rule.
+    /// `POST /v1/rules` - create a rule.
     pub async fn create_rule(
         &self,
         req: contracts::CreateRuleRequest,

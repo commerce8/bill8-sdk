@@ -3,7 +3,7 @@
 // SPDX-FileCopyrightText: Copyright Contributors to the Bill8:SDK
 // SPDX-License-Identifier: Apache-2.0
 
-//! Billing SDK client — typed methods over the Bill8:Billing REST API.
+//! Billing SDK client - typed methods over the Bill8:Billing REST API.
 
 use bill8_billing_contracts as contracts;
 
@@ -59,7 +59,7 @@ impl BillingClient {
         serde_json::from_str(&text).map_err(|e| SdkError::Decode(format!("{e}: {text}")))
     }
 
-    /// `POST /v1/subscriptions` — create a subscription.
+    /// `POST /v1/subscriptions` - create a subscription.
     pub async fn create_subscription(
         &self,
         req: contracts::CreateSubscriptionRequest,
@@ -69,7 +69,7 @@ impl BillingClient {
             .await?)
     }
 
-    /// `POST /v1/usage-records` — meter a usage event.
+    /// `POST /v1/usage-records` - meter a usage event.
     pub async fn create_usage_record(
         &self,
         req: contracts::CreateUsageRecordRequest,
@@ -79,7 +79,7 @@ impl BillingClient {
             .await?)
     }
 
-    /// `GET /v1/invoices` — list invoices.
+    /// `GET /v1/invoices` - list invoices.
     pub async fn list_invoices(&self) -> Result<Vec<contracts::Invoice>, BillingError> {
         Ok(self
             .send_json::<Vec<contracts::Invoice>>(reqwest::Method::GET, "/v1/invoices", None::<()>)

@@ -25,12 +25,12 @@ graph TD
 
 ## 4. Key Traits and Data Structures
 
-- `Price` — a recurring or one-off price point with `interval`
+- `Price` - a recurring or one-off price point with `interval`
   (`day/week/month/year`) and `unit_amount` (JSON string).
-- `Subscription` — a plan instance with `status`
+- `Subscription` - a plan instance with `status`
   (`incomplete/active/past_due/canceled`).
-- `Invoice` — a generated bill with `status` (`draft/open/paid/void`).
-- `UsageRecord` — a metered consumption event.
+- `Invoice` - a generated bill with `status` (`draft/open/paid/void`).
+- `UsageRecord` - a metered consumption event.
 
 ## 5. Rationale, Trade-offs, and Alternatives
 
