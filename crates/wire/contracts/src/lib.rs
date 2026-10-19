@@ -170,6 +170,21 @@ pub struct HeaderConventions {
     pub correlation_id: String,
 }
 
+/// The liveness payload every Bill8 service returns at
+/// `GET /v1/health` (tag `meta`): status, serving service short
+/// name, build identity.
+#[derive(Debug, Clone, Serialize, Deserialize, utoipa::ToSchema)]
+pub struct HealthBuild {
+    /// Always `ok` on a live instance.
+    pub status: String,
+    /// The serving service short name (e.g. `ledger`).
+    pub service: String,
+    /// Build identity id (`sentin8::build_info::id()`).
+    pub version: String,
+    /// Build hash (`sentin8::build_info::build_hash()`).
+    pub build: String,
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

@@ -89,6 +89,15 @@ pub struct ScreenRequest {
     pub charge_context: serde_json::Value,
 }
 
+/// Request body for `POST /v1/reviews/{id}/resolve` (idempotent resolve).
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct ResolveReviewRequest {
+    /// Resolution decision: `approve`/`approved` resolves approved;
+    /// anything else resolves declined (defaults to `declined`).
+    #[serde(default)]
+    pub decision: Option<String>,
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

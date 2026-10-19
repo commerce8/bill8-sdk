@@ -235,6 +235,72 @@ pub struct CreateUsageRecordRequest {
     pub idempotency_key: Option<String>,
 }
 
+/// Request body for `POST /v1/coupons`.
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct CreateCouponRequest {
+    /// Unique coupon code (required).
+    pub code: String,
+    /// Discount kind: `percentage` (default) or `fixed`.
+    #[serde(default = "default_discount_kind")]
+    pub discount_kind: String,
+    /// Discount value - a percent (0-100) for `percentage`, an amount
+    /// string for `fixed`. Defaults to `0`.
+    #[serde(default = "default_zero")]
+    pub value: String,
+    /// Maximum redemption count (unlimited when absent).
+    #[serde(default)]
+    pub redemption_limit: Option<i64>,
+    /// Expiry instant (RFCC 3339; never expires when absent).
+    #[serde(default)]
+    pub expires_at: Option<DateTime<Utc>>,
+}
+
+fn default_discount_kind() -> String {
+    "percentage".to_string()
+}
+
+fn default_zero() -> String {
+    "0".to_string()
+}
+
+/// Request body for `POST /v1/credits`.
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct CreateCreditRequest {
+    /// Customer receiving the prepaid credit.
+    pub customer_id: Uuid,
+    /// Credit amount (decimal string, positive).
+    pub amount: String,
+    /// Currency code (USD when absent).
+    #[serde(default = "default_currency")]
+    pub currency: String,
+}
+
+fn default_currency() -> String {
+    "USD".to_string()
+}
+
+/// Request body for `POST /v1/credit-notes`.
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct CreateCreditNoteRequest {
+    /// Invoice being adjusted.
+    pub invoice_id: Uuid,
+    /// Credit-note amount (decimal string, capped at the paid amount).
+    pub amount: String,
+}
+
+/// Request body for `POST /v1/tax-rates`.
+#[derive(Debug, Clone, Serialize, Deserialize, ToSchema)]
+pub struct CreateTaxRateRequest {
+    /// Tax jurisdiction code (required).
+    pub jurisdiction: String,
+    /// Inclusive-in-price flag (exclusive when absent).
+    #[serde(default)]
+    pub inclusive: bool,
+    /// Rate in basis points.
+    #[serde(default)]
+    pub rate_bps: i32,
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
