@@ -29,7 +29,7 @@
 //! # use bill8::ClientBuilder;
 //! # async fn demo() -> Result<(), Box<dyn std::error::Error>> {
 //! let ledger = bill8::ledger::LedgerClient::new(
-//!     "https://bill8-ledger.ops.sys.sentin8.local",
+//!     "https://bill8-ledger.ops.sys.local.sentin8.dev",
 //! ).with_token("m2m-token");
 //! let balances = ledger.list_balances().await?;
 //! # Ok(())
