@@ -52,4 +52,4 @@ The crate is types + assertions only - no runtime, no I/O. Services depend on it
 
 ---
 
-**Design attribution:** bill8:wire and its underlying concepts were designed by Hamid Jahanzad <Hamid@Jahanzad.com>.
+**Architecture & Design:** bill8:wire and its underlying concepts were designed by [Hamid Jahanzad](https://www.linkedin.com/in/hamidjahanzad/).
