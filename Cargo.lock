@@ -48,7 +48,7 @@ checksum = "ac07cdecf99051d9a5238b80f35af32cdeba5b336e55d957b318b50137e18da5"
 
 [[package]]
 name = "bill8"
-version = "0.1.0"
+version = "1.0.0"
 dependencies = [
  "async-trait",
  "bill8-billing-contracts",
@@ -71,7 +71,7 @@ dependencies = [
 
 [[package]]
 name = "bill8-billing-contracts"
-version = "0.1.0"
+version = "1.0.0"
 dependencies = [
  "chrono",
  "serde",
@@ -82,7 +82,7 @@ dependencies = [
 
 [[package]]
 name = "bill8-checkout-contracts"
-version = "0.1.0"
+version = "1.0.0"
 dependencies = [
  "chrono",
  "serde",
@@ -93,7 +93,7 @@ dependencies = [
 
 [[package]]
 name = "bill8-ledger-contracts"
-version = "0.1.0"
+version = "1.0.0"
 dependencies = [
  "chrono",
  "serde",
@@ -104,7 +104,7 @@ dependencies = [
 
 [[package]]
 name = "bill8-merchants-contracts"
-version = "0.1.0"
+version = "1.0.0"
 dependencies = [
  "chrono",
  "serde",
@@ -115,7 +115,7 @@ dependencies = [
 
 [[package]]
 name = "bill8-payments-contracts"
-version = "0.1.0"
+version = "1.0.0"
 dependencies = [
  "chrono",
  "serde",
@@ -126,7 +126,7 @@ dependencies = [
 
 [[package]]
 name = "bill8-reporting-contracts"
-version = "0.1.0"
+version = "1.0.0"
 dependencies = [
  "chrono",
  "serde",
@@ -137,7 +137,7 @@ dependencies = [
 
 [[package]]
 name = "bill8-risk-contracts"
-version = "0.1.0"
+version = "1.0.0"
 dependencies = [
  "chrono",
  "serde",
@@ -148,7 +148,7 @@ dependencies = [
 
 [[package]]
 name = "bill8-webhooks-contracts"
-version = "0.1.0"
+version = "1.0.0"
 dependencies = [
  "chrono",
  "serde",
@@ -159,7 +159,7 @@ dependencies = [
 
 [[package]]
 name = "bill8-wire-contracts"
-version = "0.1.0"
+version = "1.0.0"
 dependencies = [
  "chrono",
  "serde",
